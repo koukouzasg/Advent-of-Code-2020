@@ -4,7 +4,7 @@ with open("C:\Programming\github\Advent-of-Code-2020\Day Six\Day6 Input.txt") as
 input.append("")    
 answers, totalSum = [], 0
 
-for i, answer in enumerate(input):
+for answer in input:
     if answer == "":
         totalSum += len(answers)
         answers = []
