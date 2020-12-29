@@ -1,9 +1,7 @@
 with open("C:\Programming\github\Advent-of-Code-2020\Day Five\Day5 Input.txt") as f:
-	#input = f.readlines()
-    #input = [passport for passport in f.read().split('\n\n')]
     input = [line.strip() for line in f]
     
-maxSeatID = -1    
+seat_ids = []  
     
 for seat in input:
     lower1, upper1, lower2, upper2, seat1, seat2 = 0, 127, 0, 7, 0, 0  
@@ -23,7 +21,12 @@ for seat in input:
             seat2 = lower2
             
     seatID = seat1*8+seat2
-    if seatID > maxSeatID:
-        maxSeatID = seatID
+    seat_ids.append(seatID)
+    
+seat_ids.sort()
 
-print(maxSeatID)
+for i, seatID in enumerate(seat_ids):
+    if i == len(seat_ids)-1:
+        break
+    if i > 0 and seat_ids[i+1]-seatID == 2:
+        print(seatID+1)
